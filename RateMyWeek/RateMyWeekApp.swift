@@ -11,7 +11,8 @@ import SwiftUI
 struct RateMyWeekApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView()//currentDay: Day(date: .now, activities: [], completionMap: [String: Bool]()))
         }
+        .modelContainer(for: Day.self)
     }
 }
