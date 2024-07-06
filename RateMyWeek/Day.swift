@@ -13,10 +13,12 @@ class Day: Identifiable{
     let id = UUID()
     var date: Date
     @Relationship(inverse: \Activity.days) var activities : [Activity]
+    var compDict: [String: Bool] = [:]
     
-    init(date: Date, activities: [Activity]) {
+    init(date: Date, activities: [Activity], compDict: [String : Bool]) {
         self.date = date
         self.activities = activities
+        self.compDict = compDict
     }
 }
 

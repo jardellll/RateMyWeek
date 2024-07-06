@@ -18,6 +18,7 @@ struct ContentView: View {
     
     @State private var actForDay = [Activity]()
     @State private var foundMatch = false
+    @State private var currentDay: Day?
 
     var body: some View {
         VStack {
@@ -38,34 +39,51 @@ struct ContentView: View {
                             print (chosenDay)
                             print(day.activities)
                             actForDay = day.activities
+                            currentDay = day
+                            print(day.compDict)
                         
                         }
                     }
                     if foundMatch == false{
-                        let newDay = Day(date: chosenDay, activities: [])
+                        let newDay = Day(date: chosenDay, activities: [], compDict: [:])
                         print("new day")
                         modelContext.insert(newDay)
                         for act in activities{
                             newDay.activities.append(act)
+                            newDay.compDict[act.name] = false
                         }
+                        print(newDay.compDict)
                         actForDay = newDay.activities
+                        currentDay = newDay
+                        try? modelContext.save()
                      
                         
                     }
                 }
                     
-                
-            List(actForDay){activity in
-                Text(activity.name)
-                    .swipeActions{
-                        
-                        Button("delete", systemImage: "trash", role: .destructive) {
-                            modelContext.delete(activity)
-                        }
-                        Button("completed", systemImage: "checkmark.circle"){
+            if let currentDay = currentDay{
+                List(currentDay.activities){activity in
+                    Text(activity.name)
+                        .foregroundStyle(currentDay.compDict[activity.name] == true ? .green : .black)
+                        .swipeActions{
                             
+                            Button("delete", systemImage: "trash", role: .destructive) {
+                                modelContext.delete(activity)
+                            }
+                            if currentDay.compDict[activity.name] == false{
+                                Button("completed", systemImage: "checkmark.circle"){
+                                    currentDay.compDict[activity.name] = true
+                                    try? modelContext.save()
+                                }
+                            }else{
+                                Button("incomplete", systemImage: "x.circle"){
+                                    currentDay.compDict[activity.name] = false
+                                    try? modelContext.save()
+                                }
+                            }
                         }
-                    }
+                        
+                }
             }
         }
         
