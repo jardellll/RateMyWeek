@@ -60,29 +60,37 @@ struct ContentView: View {
                         
                     }
                 }
-                    
+            let componets = Calendar.current.dateComponents([.weekOfYear], from: currentDay?.date ?? Date.now)
+            let weekOfYear = componets.weekOfYear ?? 0
+            Text("the week of the year is \(weekOfYear)")
             if let currentDay = currentDay{
                 List(currentDay.activities){activity in
-                    Text(activity.name)
-                        .foregroundStyle(currentDay.compDict[activity.name] == true ? .green : .black)
-                        .swipeActions{
-                            
-                            Button("delete", systemImage: "trash", role: .destructive) {
-                                modelContext.delete(activity)
-                            }
-                            if currentDay.compDict[activity.name] == false{
-                                Button("completed", systemImage: "checkmark.circle"){
-                                    currentDay.compDict[activity.name] = true
-                                    try? modelContext.save()
+                    HStack{
+                        Text(activity.name)
+                            .foregroundStyle(currentDay.compDict[activity.name] == true ? .green : .black)
+                            .swipeActions{
+                                
+                                Button("delete", systemImage: "trash", role: .destructive) {
+                                    modelContext.delete(activity)
                                 }
-                            }else{
-                                Button("incomplete", systemImage: "x.circle"){
-                                    currentDay.compDict[activity.name] = false
-                                    try? modelContext.save()
+                                if currentDay.compDict[activity.name] == false{
+                                    Button("completed", systemImage: "checkmark.circle"){
+                                        currentDay.compDict[activity.name] = true
+                                        try? modelContext.save()
+                                    }
+                                }else{
+                                    Button("incomplete", systemImage: "x.circle"){
+                                        currentDay.compDict[activity.name] = false
+                                        try? modelContext.save()
+                                    }
                                 }
                             }
-                        }
                         
+                        Spacer()
+                        
+                        Text(getWeekScore(act: activity, currentDay: currentDay))
+                        
+                    }
                 }
             }
         }
@@ -92,6 +100,83 @@ struct ContentView: View {
     
     func getActivities()-> [Activity]{
         return activities
+    }
+    func getWeekScore(act: Activity, currentDay: Day ) -> String{
+        
+        let componets = Calendar.current.dateComponents([.weekOfYear], from: currentDay.date)
+        let weekOfYear = componets.weekOfYear
+        var dayComp = Calendar.current.dateComponents([.day], from: currentDay.date)
+        
+        //find seven days before
+        var forwardDays = [String]()
+        var forwardCount = 0
+        Calendar.current.enumerateDates(startingAfter: currentDay.date, matching: DateComponents(hour: 0), matchingPolicy: .nextTime,repeatedTimePolicy: .first, direction: .forward){ (date, _ , stop) in
+            
+            forwardCount += 1
+            if date != nil && forwardDays.count < 8 {
+                forwardDays.append(date!.formatted(date: .abbreviated, time: .omitted))
+            }
+            if forwardCount == 7{
+                stop = true
+            }
+            
+            
+        }
+        
+        
+        //find seven days after
+        var backwardDays = [String]()
+        var backwardCount = 0
+        Calendar.current.enumerateDates(startingAfter: currentDay.date, matching: DateComponents(hour: 0), matchingPolicy: .nextTime,repeatedTimePolicy: .first, direction: .backward){ (date, _ , stop) in
+            
+            backwardCount += 1
+            if date != nil && backwardDays.count < 8 {
+                backwardDays.append(date!.formatted(date: .abbreviated, time: .omitted))
+            }
+            
+            if backwardCount == 7{
+                stop = true
+            }
+        }
+        
+        //combine the two then check which ones are in the same week as the day passed in
+        var dayRange = [String]()
+        dayRange.append(contentsOf: forwardDays)
+        dayRange.append(contentsOf: backwardDays)
+        //print(dayRange)
+        var sameWeekDays = [Day]()
+        
+        for day in days{
+            var dayyyyy = day.date.formatted(date: .abbreviated, time: .omitted)
+            var c = Calendar.current.dateComponents([.weekOfYear], from: day.date)
+            var week = c.weekOfYear
+            if week != nil {
+                print(week!)
+            }
+            else {print("no week")}
+            
+            if (dayRange.contains(dayyyyy) && week == weekOfYear){
+                sameWeekDays.append(day)
+                print("found a day in the same week")
+            }
+        }
+        print("--------------------------")
+        
+        //now check if they have the activity completed
+        var activityCount = 0
+        
+        for sameWeekDay in sameWeekDays{
+            if sameWeekDay.compDict[act.name] == true{
+                activityCount += 1
+            }
+        }
+//        if currentDay.compDict[act.name] == true{
+//            activityCount += 1
+//        }
+        var freqency = act.freqency
+        
+        return ("\(activityCount)/\(freqency)")
+        
     }
 }
 

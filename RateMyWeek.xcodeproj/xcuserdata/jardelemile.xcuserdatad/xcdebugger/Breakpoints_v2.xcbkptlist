@@ -175,5 +175,399 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "862F1FD2-3DB9-4199-84DE-69F5FAF78A07"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RateMyWeek/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "getWeekScore(act:currentDay:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "780771F4-72C6-4B98-A4E9-CCE62CF51F9C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RateMyWeek/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "getWeekScore(act:currentDay:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "780771F4-72C6-4B98-A4E9-CCE62CF51F9C - 3745b33ba8742b02"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "1580">
+               </Location>
+               <Location
+                  uuid = "780771F4-72C6-4B98-A4E9-CCE62CF51F9C - 3745b33ba8742b02"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "2012">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7945068A-C374-48B3-9605-5B5410948F03"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RateMyWeek/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "getWeekScore(act:currentDay:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7945068A-C374-48B3-9605-5B5410948F03 - 3745b33ba8742513"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "1872">
+               </Location>
+               <Location
+                  uuid = "7945068A-C374-48B3-9605-5B5410948F03 - 3745b33ba8742513"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "1992">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7CB537F0-5FD6-4A20-A736-5FCBC491A166"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RateMyWeek/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "getWeekScore(act:currentDay:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7CB537F0-5FD6-4A20-A736-5FCBC491A166 - 3745b33ba87420a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "3676">
+               </Location>
+               <Location
+                  uuid = "7CB537F0-5FD6-4A20-A736-5FCBC491A166 - 3745b33ba8742087"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "3628">
+               </Location>
+               <Location
+                  uuid = "7CB537F0-5FD6-4A20-A736-5FCBC491A166 - 3745b33ba8742087"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "3820">
+               </Location>
+               <Location
+                  uuid = "7CB537F0-5FD6-4A20-A736-5FCBC491A166 - 3745b33ba8742087"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "4308">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A9B75F46-CADD-48D8-A35F-558C72C8FC33"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RateMyWeek/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "getWeekScore(act:currentDay:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A9B75F46-CADD-48D8-A35F-558C72C8FC33 - 3745b33ba8742722"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "3488">
+               </Location>
+               <Location
+                  uuid = "A9B75F46-CADD-48D8-A35F-558C72C8FC33 - 3745b33ba8742722"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "3404">
+               </Location>
+               <Location
+                  uuid = "A9B75F46-CADD-48D8-A35F-558C72C8FC33 - 3745b33ba8742722"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "3604">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73A85210-B8B8-45EE-AF5F-A0078714BB49"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RateMyWeek/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "getWeekScore(act:currentDay:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "73A85210-B8B8-45EE-AF5F-A0078714BB49 - 3745b33ba8742668"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "2372">
+               </Location>
+               <Location
+                  uuid = "73A85210-B8B8-45EE-AF5F-A0078714BB49 - 3745b33ba8742668"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "2228">
+               </Location>
+               <Location
+                  uuid = "73A85210-B8B8-45EE-AF5F-A0078714BB49 - 3745b33ba8742668"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "2312">
+               </Location>
+               <Location
+                  uuid = "73A85210-B8B8-45EE-AF5F-A0078714BB49 - 3745b33ba8742668"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "2800">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A4EA8B75-E6F6-4B44-843A-19EE69D5CBA1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RateMyWeek/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "getWeekScore(act:currentDay:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A4EA8B75-E6F6-4B44-843A-19EE69D5CBA1 - 3745b33ba8742703"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "3448">
+               </Location>
+               <Location
+                  uuid = "A4EA8B75-E6F6-4B44-843A-19EE69D5CBA1 - 3745b33ba8742703"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "3532">
+               </Location>
+               <Location
+                  uuid = "A4EA8B75-E6F6-4B44-843A-19EE69D5CBA1 - 3745b33ba8742703"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RateMyWeek.ContentView.getWeekScore(act: RateMyWeek.Activity, currentDay: RateMyWeek.Day) -&gt; Swift.String"
+                  moduleName = "RateMyWeek"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jardelemile/Library/Mobile%20Documents/com~apple~CloudDocs/Documents/DEV/learning%20swift/RateMyWeek/RateMyWeek/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "4020">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
