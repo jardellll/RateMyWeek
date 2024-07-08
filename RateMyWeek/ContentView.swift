@@ -11,6 +11,7 @@ struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @State private var chosenDay = Date.now
     @State private var showingSheet = false
+    @State private var showingWeightSheet = false
     @Query var days : [Day]
     @Query var activities : [Activity]
     
@@ -21,81 +22,112 @@ struct ContentView: View {
     @State private var currentDay: Day?
 
     var body: some View {
-        VStack {
-            Button("new activity"){
-                showingSheet.toggle()
-            }
-            .sheet(isPresented: $showingSheet){
-                NewActivityView()
-            }
-            DatePicker("choose a day", selection: $chosenDay, displayedComponents: .date)
-                .onChange(of: chosenDay, initial: true){
-                    foundMatch = false
-                    for day in days{
-                        if day.date == chosenDay{
-                            print("found a match")
-                            foundMatch = true
-                            print (day.date)
-                            print (chosenDay)
-                            print(day.activities)
-                            actForDay = day.activities
-                            currentDay = day
-                            print(day.compDict)
-                        
-                        }
+        NavigationStack{
+            VStack {
+                
+                    
+                HStack{
+                    Spacer()
+                    Button("edit weights"){
+                        print("week weight 1 \(showingWeightSheet)")
+                        showingWeightSheet.toggle()
+                        print("week weight 2 \(showingWeightSheet)")
                     }
-                    if foundMatch == false{
-                        let newDay = Day(date: chosenDay, activities: [], compDict: [:])
-                        print("new day")
-                        modelContext.insert(newDay)
-                        for act in activities{
-                            newDay.activities.append(act)
-                            newDay.compDict[act.name] = false
-                        }
-                        print(newDay.compDict)
-                        actForDay = newDay.activities
-                        currentDay = newDay
-                        try? modelContext.save()
-                     
-                        
+                    .sheet(isPresented: $showingWeightSheet){
+                        //print("showing week weights sheet")
+                        WeekWeightsView()
                     }
+                    Spacer()
+                    Spacer()
+                    Button("new activity"){
+                        print("new activity 1 \(showingSheet)")
+                        showingSheet.toggle()
+                        print("new activity 2 \(showingSheet)")
+                    }
+                    .sheet(isPresented: $showingSheet){
+                        NewActivityView()
+                    }
+                    Spacer()
+                    
+                    
                 }
-            let componets = Calendar.current.dateComponents([.weekOfYear], from: currentDay?.date ?? Date.now)
-            let weekOfYear = componets.weekOfYear ?? 0
-            Text("the week of the year is \(weekOfYear)")
-            if let currentDay = currentDay{
-                List(currentDay.activities){activity in
-                    HStack{
-                        Text(activity.name)
-                            .foregroundStyle(currentDay.compDict[activity.name] == true ? .green : .black)
-                            .swipeActions{
-                                
-                                Button("delete", systemImage: "trash", role: .destructive) {
-                                    modelContext.delete(activity)
+                 
+                Form{
+                    Section{
+                        DatePicker("choose a day", selection: $chosenDay, displayedComponents: .date)
+                            .onChange(of: chosenDay, initial: true){
+                                foundMatch = false
+                                for day in days{
+                                    if day.date == chosenDay{
+                                        print("found a match")
+                                        foundMatch = true
+                                        print (day.date)
+                                        print (chosenDay)
+                                        print(day.activities)
+                                        actForDay = day.activities
+                                        currentDay = day
+                                        print(day.compDict)
+                                        
+                                    }
                                 }
-                                if currentDay.compDict[activity.name] == false{
-                                    Button("completed", systemImage: "checkmark.circle"){
-                                        currentDay.compDict[activity.name] = true
-                                        try? modelContext.save()
+                                if foundMatch == false{
+                                    let newDay = Day(date: chosenDay, activities: [], compDict: [:])
+                                    print("new day")
+                                    modelContext.insert(newDay)
+                                    for act in activities{
+                                        newDay.activities.append(act)
+                                        newDay.compDict[act.name] = false
                                     }
-                                }else{
-                                    Button("incomplete", systemImage: "x.circle"){
-                                        currentDay.compDict[activity.name] = false
-                                        try? modelContext.save()
-                                    }
+                                    print(newDay.compDict)
+                                    actForDay = newDay.activities
+                                    currentDay = newDay
+                                    try? modelContext.save()
+                                    
+                                    
                                 }
                             }
-                        
-                        Spacer()
-                        
-                        Text(getWeekScore(act: activity, currentDay: currentDay))
-                        
+                    }
+                    //            let componets = Calendar.current.dateComponents([.weekOfYear], from: currentDay?.date ?? Date.now)
+                    //            let weekOfYear = componets.weekOfYear ?? 0
+                    //            Text("the week of the year is \(weekOfYear)")
+                    Section{
+                        if let currentDay = currentDay{
+                            List(currentDay.activities){activity in
+                                HStack{
+                                    Text(activity.name)
+                                        .foregroundStyle(currentDay.compDict[activity.name] == true ? .green : .primary)
+                                        .swipeActions{
+                                            
+                                            Button("delete", systemImage: "trash", role: .destructive) {
+                                                modelContext.delete(activity)
+                                            }
+                                            if currentDay.compDict[activity.name] == false{
+                                                Button("completed", systemImage: "checkmark.circle"){
+                                                    currentDay.compDict[activity.name] = true
+                                                    try? modelContext.save()
+                                                }
+                                            }else{
+                                                Button("incomplete", systemImage: "x.circle"){
+                                                    currentDay.compDict[activity.name] = false
+                                                    try? modelContext.save()
+                                                }
+                                            }
+                                        }
+                                    
+                                    Spacer()
+                                    
+                                    Text(getWeekScore(act: activity, currentDay: currentDay))
+                                    
+                                }
+                            }
+                        }
                     }
                 }
             }
+            .navigationTitle("RateMyWeek")
         }
         
-        .padding()
+    
     }
     
     func getActivities()-> [Activity]{

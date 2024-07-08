@@ -10,29 +10,41 @@ import SwiftData
 
 struct NewActivityView: View {
     @Environment(\.modelContext) var modelContext
+    @Query var days : [Day]
     @State private var name = ""
     @State private var frequency = 0
+    @State private var startDate = Date.now
     @Environment(\.dismiss) var dismiss
     var body: some View {
-        Form{
-            TextField("name your activity", text: $name)
-            Picker("how many times per week?", selection: $frequency){
-                ForEach(1..<8){
-                    Text("\($0)")
+        NavigationStack{
+            Form{
+                TextField("name your activity", text: $name)
+                Picker("how many times per week?", selection: $frequency){
+                    ForEach(1..<8){
+                        Text("\($0)")
+                    }
+                }
+                DatePicker("start date", selection: $startDate, in: Date.now... , displayedComponents: .date)
+                
+                
+                Button("save"){
+                    let newActivity = Activity(name: name, freqency: frequency+1, days: [], weight: 0)
+                    modelContext.insert(newActivity)
+                    //Activities.activities.append(newActivity)
+                    for day in days {
+                        if day.date >= startDate{
+                            day.activities.append(newActivity)
+                        }
+                    }
+                    dismiss()
+                    
+                }
+                Button("cancel"){
+                    dismiss()
                 }
             }
-            
-            Button("save"){
-                let newActivity = Activity(name: name, freqency: frequency, days: [])
-                modelContext.insert(newActivity)
-                //Activities.activities.append(newActivity)
-                dismiss()
-            }
-            Button("cancel"){
-                dismiss()
-            }
+            .navigationTitle("New Activity")
         }
-        
         
     }
 }
