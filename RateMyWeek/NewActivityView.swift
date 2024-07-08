@@ -32,7 +32,12 @@ struct NewActivityView: View {
                     modelContext.insert(newActivity)
                     //Activities.activities.append(newActivity)
                     for day in days {
-                        if day.date.formatted(date: .abbreviated, time: .omitted) >= startDate.formatted(date: .abbreviated, time: .omitted){
+                        let calendar = Calendar.current
+                        let dayStartDate = calendar.dateComponents([.year, .month, .day],from: day.date)
+                        let actStartDate = calendar.dateComponents([.year, .month, .day],from: startDate)
+                        let dayStartDt = calendar.date(from: dayStartDate)!
+                        let actStartDt =  calendar.date(from: actStartDate)!
+                        if dayStartDt >= actStartDt{
                             day.activities.append(newActivity)
                         }
                     }

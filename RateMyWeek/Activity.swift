@@ -10,6 +10,7 @@ import SwiftData
 
 @Model
 class Activity{
+    let id = UUID()
     var name: String
     var freqency: Int
     var days: [Day]
