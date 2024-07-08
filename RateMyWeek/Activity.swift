@@ -14,12 +14,14 @@ class Activity{
     var freqency: Int
     var days: [Day]
     var weight: Int?
+    var startDate: Date?
     
-    init(name: String, freqency: Int, days: [Day], weight: Int? = 0) {
+    init(name: String, freqency: Int, days: [Day], weight: Int? = 0, startDate: Date? = Date.now) {
         self.name = name
         self.freqency = freqency
         self.days = days
         self.weight = weight
+        self.startDate = startDate
     }
 }
 

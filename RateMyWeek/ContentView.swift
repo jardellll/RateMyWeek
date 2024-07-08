@@ -64,7 +64,7 @@ struct ContentView: View {
                                         print (day.date)
                                         print (chosenDay)
                                         print(day.activities)
-                                        actForDay = day.activities
+                                        //actForDay = day.activities
                                         currentDay = day
                                         print(day.compDict)
                                         
@@ -75,8 +75,18 @@ struct ContentView: View {
                                     print("new day")
                                     modelContext.insert(newDay)
                                     for act in activities{
-                                        newDay.activities.append(act)
-                                        newDay.compDict[act.name] = false
+                                        print(act.startDate!)
+                                        print(newDay.date)
+                                        let calendar = Calendar.current
+                                        let actStartDate = calendar.dateComponents([.year, .month, .day],from: act.startDate!)
+                                        let newDayDate = calendar.dateComponents([.year, .month, .day],from: newDay.date)
+                                        let actStartDt = calendar.date(from: actStartDate)!
+                                        let newDayDt =  calendar.date(from: newDayDate)!
+                                        
+                                        if (actStartDt <= newDayDt){
+                                            newDay.activities.append(act)
+                                            newDay.compDict[act.name] = false
+                                        }
                                     }
                                     print(newDay.compDict)
                                     actForDay = newDay.activities
@@ -137,7 +147,7 @@ struct ContentView: View {
         
         let componets = Calendar.current.dateComponents([.weekOfYear], from: currentDay.date)
         let weekOfYear = componets.weekOfYear
-        var dayComp = Calendar.current.dateComponents([.day], from: currentDay.date)
+        _ = Calendar.current.dateComponents([.day], from: currentDay.date)
         
         //find seven days before
         var forwardDays = [String]()
@@ -179,9 +189,9 @@ struct ContentView: View {
         var sameWeekDays = [Day]()
         
         for day in days{
-            var dayyyyy = day.date.formatted(date: .abbreviated, time: .omitted)
-            var c = Calendar.current.dateComponents([.weekOfYear], from: day.date)
-            var week = c.weekOfYear
+            let dayyyyy = day.date.formatted(date: .abbreviated, time: .omitted)
+            let c = Calendar.current.dateComponents([.weekOfYear], from: day.date)
+            let week = c.weekOfYear
             if week != nil {
                 print(week!)
             }

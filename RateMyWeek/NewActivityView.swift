@@ -28,11 +28,11 @@ struct NewActivityView: View {
                 
                 
                 Button("save"){
-                    let newActivity = Activity(name: name, freqency: frequency+1, days: [], weight: 0)
+                    let newActivity = Activity(name: name, freqency: frequency+1, days: [], weight: 0, startDate: startDate)
                     modelContext.insert(newActivity)
                     //Activities.activities.append(newActivity)
                     for day in days {
-                        if day.date >= startDate{
+                        if day.date.formatted(date: .abbreviated, time: .omitted) >= startDate.formatted(date: .abbreviated, time: .omitted){
                             day.activities.append(newActivity)
                         }
                     }
