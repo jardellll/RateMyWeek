@@ -14,6 +14,7 @@ struct NewActivityView: View {
     @State private var name = ""
     @State private var frequency = 0
     @State private var startDate = Date.now
+    @State private var about = "about"
     @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack{
@@ -26,7 +27,10 @@ struct NewActivityView: View {
                 }
                 DatePicker("start date", selection: $startDate, in: Date.now... , displayedComponents: .date)
                 
+            //}
+                TextEditor(text: $about)
                 
+            //Form{
                 Button("save"){
                     let newActivity = Activity(name: name, freqency: frequency+1, days: [], weight: 0, startDate: startDate)
                     modelContext.insert(newActivity)

@@ -118,25 +118,30 @@ struct ContentView: View {
                         if let currentDay = currentDay{
                             List(currentDay.activities){activity in
                                 HStack{
-                                    Text(activity.name)
-                                        .foregroundStyle(currentDay.compDict[activity.id.uuidString] == true ? .green : .primary)
-                                        .swipeActions{
-                                            
-                                            Button("delete", systemImage: "trash", role: .destructive) {
-                                                modelContext.delete(activity)
-                                            }
-                                            if currentDay.compDict[activity.id.uuidString] == false{
-                                                Button("completed", systemImage: "checkmark.circle"){
-                                                    currentDay.compDict[activity.id.uuidString] = true
-                                                    try? modelContext.save()
+                                    NavigationLink(destination: ActivityView(activity: activity)){
+                                        //ActivityView(activity: activity)
+                                    //}label: {
+                                        Text(activity.name)
+                                            .foregroundStyle(currentDay.compDict[activity.id.uuidString] == true ? .green : .primary)
+                                            .swipeActions{
+                                                
+                                                Button("delete", systemImage: "trash", role: .destructive) {
+                                                    modelContext.delete(activity)
                                                 }
-                                            }else{
-                                                Button("incomplete", systemImage: "x.circle"){
-                                                    currentDay.compDict[activity.id.uuidString] = false
-                                                    try? modelContext.save()
+                                                if currentDay.compDict[activity.id.uuidString] == false{
+                                                    Button("completed", systemImage: "checkmark.circle"){
+                                                        currentDay.compDict[activity.id.uuidString] = true
+                                                        try? modelContext.save()
+                                                    }
+                                                }else{
+                                                    Button("incomplete", systemImage: "x.circle"){
+                                                        currentDay.compDict[activity.id.uuidString] = false
+                                                        try? modelContext.save()
+                                                    }
                                                 }
                                             }
-                                        }
+                                    }
+                                    
                                     
                                     Spacer()
                                     

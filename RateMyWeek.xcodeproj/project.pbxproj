@@ -15,6 +15,8 @@
 		823715902C13F73D0040A468 /* NewActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8237158F2C13F73D0040A468 /* NewActivityView.swift */; };
 		826A5B292C14B007004C79D8 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A5B282C14B007004C79D8 /* Day.swift */; };
 		826A5B2B2C3AADAF004C79D8 /* WeekWeightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A5B2A2C3AADAF004C79D8 /* WeekWeightsView.swift */; };
+		82D85CC92C3D47B600FED8E0 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CC82C3D47B600FED8E0 /* ActivityView.swift */; };
+		82D85CCB2C3E9ABB00FED8E0 /* DaysCompletedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CCA2C3E9ABB00FED8E0 /* DaysCompletedListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		8237158F2C13F73D0040A468 /* NewActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityView.swift; sourceTree = "<group>"; };
 		826A5B282C14B007004C79D8 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		826A5B2A2C3AADAF004C79D8 /* WeekWeightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeightsView.swift; sourceTree = "<group>"; };
+		82D85CC82C3D47B600FED8E0 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		82D85CCA2C3E9ABB00FED8E0 /* DaysCompletedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCompletedListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,8 @@
 		823715732C1318480040A468 = {
 			isa = PBXGroup;
 			children = (
+				82D85CCA2C3E9ABB00FED8E0 /* DaysCompletedListView.swift */,
+				82D85CC82C3D47B600FED8E0 /* ActivityView.swift */,
 				8237157E2C1318480040A468 /* RateMyWeek */,
 				8237157D2C1318480040A468 /* Products */,
 			);
@@ -152,7 +158,9 @@
 				8237158E2C13F68C0040A468 /* Activity.swift in Sources */,
 				823715822C1318480040A468 /* ContentView.swift in Sources */,
 				823715902C13F73D0040A468 /* NewActivityView.swift in Sources */,
+				82D85CCB2C3E9ABB00FED8E0 /* DaysCompletedListView.swift in Sources */,
 				826A5B292C14B007004C79D8 /* Day.swift in Sources */,
+				82D85CC92C3D47B600FED8E0 /* ActivityView.swift in Sources */,
 				826A5B2B2C3AADAF004C79D8 /* WeekWeightsView.swift in Sources */,
 				823715802C1318480040A468 /* RateMyWeekApp.swift in Sources */,
 			);
