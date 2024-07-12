@@ -47,20 +47,20 @@ struct ContentView: View {
                     .sheet(isPresented: $showingSheet){
                         NewActivityView()
                     }
-                    Button("clear everything"){
+//                    Button("clear everything"){
+////                        do {
+////                            try modelContext.delete(model: Activity.self)
+////                            print("deleted all activities.")
+////                        } catch {
+////                            print("Failed to delete all activities.")
+////                        }
 //                        do {
-//                            try modelContext.delete(model: Activity.self)
-//                            print("deleted all activities.")
+//                            try modelContext.delete(model: Day.self)
+//                            print("deleted all days.")
 //                        } catch {
-//                            print("Failed to delete all activities.")
+//                            print("Failed to delete all days.")
 //                        }
-                        do {
-                            try modelContext.delete(model: Day.self)
-                            print("deleted all days.")
-                        } catch {
-                            print("Failed to delete all days.")
-                        }
-                    }
+//                    }
                     Spacer()
                     
                     

@@ -19,7 +19,7 @@ struct ActivityView: View {
                 Text("week weight \(activity.weight ?? 0)/100")
                 Text("date started: \(activity.startDate ?? Date.now)")
                 Text("about: \(activity.about ?? " ")")
-                NavigationLink(destination: DaysCompletedListView(days: activity.days)){
+                NavigationLink(destination: DaysCompletedListView(days: getCompletedDays(act: activity))){
                     Text("days completed")
                 }
                 
@@ -33,6 +33,15 @@ struct ActivityView: View {
             }
             .navigationTitle(activity.name)
         }
+    }
+    func getCompletedDays(act: Activity)->[Day]{
+        var completedDays = [Day]()
+        for day in act.days{
+            if day.compDict[act.id.uuidString] == true{
+                completedDays.append(day)
+            }
+        }
+        return completedDays
     }
 }
 
