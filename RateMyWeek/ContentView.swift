@@ -47,20 +47,20 @@ struct ContentView: View {
                     .sheet(isPresented: $showingSheet){
                         NewActivityView()
                     }
-//                    Button("clear everything"){
+                    Button("clear everything"){
 //                        do {
 //                            try modelContext.delete(model: Activity.self)
 //                            print("deleted all activities.")
 //                        } catch {
 //                            print("Failed to delete all activities.")
 //                        }
-//                        do {
-//                            try modelContext.delete(model: Day.self)
-//                            print("deleted all days.")
-//                        } catch {
-//                            print("Failed to delete all days.")
-//                        }
-//                    }
+                        do {
+                            try modelContext.delete(model: Day.self)
+                            print("deleted all days.")
+                        } catch {
+                            print("Failed to delete all days.")
+                        }
+                    }
                     Spacer()
                     
                     
@@ -72,7 +72,9 @@ struct ContentView: View {
                             .onChange(of: chosenDay, initial: true){
                                 foundMatch = false
                                 for day in days{
-                                    if day.date == chosenDay{
+                                    
+                                    //if day.date == chosenDay{
+                                    if getStrDate(day: day.date) == getStrDate(day: chosenDay){
                                         print("found a match")
                                         foundMatch = true
                                         print (day.date)
@@ -145,7 +147,9 @@ struct ContentView: View {
                                     
                                     Spacer()
                                     
+                                    
                                     Text(getWeekScore(act: activity, currentDay: currentDay))
+                                    
                                     
                                 }
                             }
@@ -162,11 +166,17 @@ struct ContentView: View {
     func getActivities()-> [Activity]{
         return activities
     }
+    func getStrDate(day: Date)->String{
+        return day.formatted(date: .abbreviated, time: .omitted)
+    }
     func getWeekScore(act: Activity, currentDay: Day ) -> String{
-        
+        print("starting for one day")
         let componets = Calendar.current.dateComponents([.weekOfYear], from: currentDay.date)
         let weekOfYear = componets.weekOfYear
         _ = Calendar.current.dateComponents([.day], from: currentDay.date)
+        
+        let currDayYearComp = Calendar.current.dateComponents([.year], from: currentDay.date)
+        let currDayYearCompInt = currDayYearComp.year
         
         //find seven days before
         var forwardDays = [String]()
@@ -175,7 +185,11 @@ struct ContentView: View {
             
             forwardCount += 1
             if date != nil && forwardDays.count < 8 {
-                forwardDays.append(date!.formatted(date: .abbreviated, time: .omitted))
+                var comp = Calendar.current.dateComponents([.year], from: date!)
+                let dateYear = comp.year
+                if dateYear! == currDayYearCompInt {
+                    forwardDays.append(date!.formatted(date: .abbreviated, time: .omitted))
+                }
             }
             if forwardCount == 7{
                 stop = true
@@ -192,7 +206,12 @@ struct ContentView: View {
             
             backwardCount += 1
             if date != nil && backwardDays.count < 8 {
-                backwardDays.append(date!.formatted(date: .abbreviated, time: .omitted))
+                var comp = Calendar.current.dateComponents([.year], from: date!)
+                let dateYear = comp.year
+                if dateYear! == currDayYearCompInt {
+                    
+                    backwardDays.append(date!.formatted(date: .abbreviated, time: .omitted))
+                }
             }
             
             if backwardCount == 7{
@@ -211,14 +230,18 @@ struct ContentView: View {
             let dayyyyy = day.date.formatted(date: .abbreviated, time: .omitted)
             let c = Calendar.current.dateComponents([.weekOfYear], from: day.date)
             let week = c.weekOfYear
+            let comp = Calendar.current.dateComponents([.year], from: day.date)
+            let dayYear = comp.year
             if week != nil {
                 print(week!)
             }
             else {print("no week")}
             
-            if (dayRange.contains(dayyyyy) && week == weekOfYear){
+            if (dayRange.contains(dayyyyy) && week == weekOfYear && dayYear == currDayYearCompInt){
                 sameWeekDays.append(day)
-                print("found a day in the same week")
+                if Calendar.current.dateComponents([.year], from: day.date) == Calendar.current.dateComponents([.year], from: currentDay.date) {
+                    print("found a day in the same week")
+                }
             }
         }
         print("--------------------------")
@@ -234,8 +257,8 @@ struct ContentView: View {
 //        if currentDay.compDict[act.name] == true{
 //            activityCount += 1
 //        }
-        var freqency = act.freqency
-        
+        let freqency = act.freqency
+        print("ending for one day")
         return ("\(activityCount)/\(freqency)")
         
     }

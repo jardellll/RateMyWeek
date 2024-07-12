@@ -17,6 +17,7 @@ struct ActivityView: View {
             List{
                 Text("frequency: \(activity.freqency)")
                 Text("week weight \(activity.weight ?? 0)/100")
+                Text("date started: \(activity.startDate ?? Date.now)")
                 Text("about: \(activity.about ?? " ")")
                 NavigationLink(destination: DaysCompletedListView(days: activity.days)){
                     Text("days completed")
