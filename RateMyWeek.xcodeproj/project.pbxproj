@@ -17,6 +17,10 @@
 		826A5B2B2C3AADAF004C79D8 /* WeekWeightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A5B2A2C3AADAF004C79D8 /* WeekWeightsView.swift */; };
 		82D85CC92C3D47B600FED8E0 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CC82C3D47B600FED8E0 /* ActivityView.swift */; };
 		82D85CCB2C3E9ABB00FED8E0 /* DaysCompletedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CCA2C3E9ABB00FED8E0 /* DaysCompletedListView.swift */; };
+		82D85CCD2C428BAA00FED8E0 /* OverallWeekScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CCC2C428BAA00FED8E0 /* OverallWeekScoreView.swift */; };
+		82D85CCF2C43EFDC00FED8E0 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CCE2C43EFDC00FED8E0 /* GoalsView.swift */; };
+		82D85CD12C43F12000FED8E0 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CD02C43F12000FED8E0 /* StatsView.swift */; };
+		82D85CD32C43F5B700FED8E0 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CD22C43F5B700FED8E0 /* LogView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		826A5B2A2C3AADAF004C79D8 /* WeekWeightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeightsView.swift; sourceTree = "<group>"; };
 		82D85CC82C3D47B600FED8E0 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		82D85CCA2C3E9ABB00FED8E0 /* DaysCompletedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCompletedListView.swift; sourceTree = "<group>"; };
+		82D85CCC2C428BAA00FED8E0 /* OverallWeekScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallWeekScoreView.swift; sourceTree = "<group>"; };
+		82D85CCE2C43EFDC00FED8E0 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
+		82D85CD02C43F12000FED8E0 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		82D85CD22C43F5B700FED8E0 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,10 @@
 		823715732C1318480040A468 = {
 			isa = PBXGroup;
 			children = (
+				82D85CD22C43F5B700FED8E0 /* LogView.swift */,
+				82D85CD02C43F12000FED8E0 /* StatsView.swift */,
+				82D85CCE2C43EFDC00FED8E0 /* GoalsView.swift */,
+				82D85CCC2C428BAA00FED8E0 /* OverallWeekScoreView.swift */,
 				82D85CCA2C3E9ABB00FED8E0 /* DaysCompletedListView.swift */,
 				82D85CC82C3D47B600FED8E0 /* ActivityView.swift */,
 				8237157E2C1318480040A468 /* RateMyWeek */,
@@ -155,11 +167,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D85CD12C43F12000FED8E0 /* StatsView.swift in Sources */,
+				82D85CD32C43F5B700FED8E0 /* LogView.swift in Sources */,
 				8237158E2C13F68C0040A468 /* Activity.swift in Sources */,
+				82D85CCF2C43EFDC00FED8E0 /* GoalsView.swift in Sources */,
 				823715822C1318480040A468 /* ContentView.swift in Sources */,
 				823715902C13F73D0040A468 /* NewActivityView.swift in Sources */,
 				82D85CCB2C3E9ABB00FED8E0 /* DaysCompletedListView.swift in Sources */,
 				826A5B292C14B007004C79D8 /* Day.swift in Sources */,
+				82D85CCD2C428BAA00FED8E0 /* OverallWeekScoreView.swift in Sources */,
 				82D85CC92C3D47B600FED8E0 /* ActivityView.swift in Sources */,
 				826A5B2B2C3AADAF004C79D8 /* WeekWeightsView.swift in Sources */,
 				823715802C1318480040A468 /* RateMyWeekApp.swift in Sources */,
