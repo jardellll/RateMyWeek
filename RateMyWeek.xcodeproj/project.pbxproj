@@ -21,6 +21,8 @@
 		82D85CCF2C43EFDC00FED8E0 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CCE2C43EFDC00FED8E0 /* GoalsView.swift */; };
 		82D85CD12C43F12000FED8E0 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CD02C43F12000FED8E0 /* StatsView.swift */; };
 		82D85CD32C43F5B700FED8E0 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CD22C43F5B700FED8E0 /* LogView.swift */; };
+		82D85CD52C447B1B00FED8E0 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CD42C447B1B00FED8E0 /* Goal.swift */; };
+		82D85CD72C4580E600FED8E0 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CD62C4580E600FED8E0 /* GoalDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		82D85CCE2C43EFDC00FED8E0 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		82D85CD02C43F12000FED8E0 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		82D85CD22C43F5B700FED8E0 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		82D85CD42C447B1B00FED8E0 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		82D85CD62C4580E600FED8E0 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 		823715732C1318480040A468 = {
 			isa = PBXGroup;
 			children = (
+				82D85CD62C4580E600FED8E0 /* GoalDetailView.swift */,
 				82D85CD22C43F5B700FED8E0 /* LogView.swift */,
 				82D85CD02C43F12000FED8E0 /* StatsView.swift */,
 				82D85CCE2C43EFDC00FED8E0 /* GoalsView.swift */,
@@ -81,6 +86,7 @@
 				823715812C1318480040A468 /* ContentView.swift */,
 				826A5B2A2C3AADAF004C79D8 /* WeekWeightsView.swift */,
 				826A5B282C14B007004C79D8 /* Day.swift */,
+				82D85CD42C447B1B00FED8E0 /* Goal.swift */,
 				8237158F2C13F73D0040A468 /* NewActivityView.swift */,
 				823715832C13184A0040A468 /* Assets.xcassets */,
 				8237158D2C13F68C0040A468 /* Activity.swift */,
@@ -169,12 +175,14 @@
 			files = (
 				82D85CD12C43F12000FED8E0 /* StatsView.swift in Sources */,
 				82D85CD32C43F5B700FED8E0 /* LogView.swift in Sources */,
+				82D85CD72C4580E600FED8E0 /* GoalDetailView.swift in Sources */,
 				8237158E2C13F68C0040A468 /* Activity.swift in Sources */,
 				82D85CCF2C43EFDC00FED8E0 /* GoalsView.swift in Sources */,
 				823715822C1318480040A468 /* ContentView.swift in Sources */,
 				823715902C13F73D0040A468 /* NewActivityView.swift in Sources */,
 				82D85CCB2C3E9ABB00FED8E0 /* DaysCompletedListView.swift in Sources */,
 				826A5B292C14B007004C79D8 /* Day.swift in Sources */,
+				82D85CD52C447B1B00FED8E0 /* Goal.swift in Sources */,
 				82D85CCD2C428BAA00FED8E0 /* OverallWeekScoreView.swift in Sources */,
 				82D85CC92C3D47B600FED8E0 /* ActivityView.swift in Sources */,
 				826A5B2B2C3AADAF004C79D8 /* WeekWeightsView.swift in Sources */,

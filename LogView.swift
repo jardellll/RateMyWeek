@@ -49,12 +49,12 @@ struct LogView: View {
                         NewActivityView()
                     }
 //                    Button("clear everything"){
-////                        do {
-////                            try modelContext.delete(model: Activity.self)
-////                            print("deleted all activities.")
-////                        } catch {
-////                            print("Failed to delete all activities.")
-////                        }
+//                        do {
+//                            try modelContext.delete(model: Activity.self)
+//                            print("deleted all activities.")
+//                        } catch {
+//                            print("Failed to delete all activities.")
+//                        }
 //                        do {
 //                            try modelContext.delete(model: Day.self)
 //                            print("deleted all days.")

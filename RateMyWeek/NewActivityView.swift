@@ -11,18 +11,38 @@ import SwiftData
 struct NewActivityView: View {
     @Environment(\.modelContext) var modelContext
     @Query var days : [Day]
+    @Query var goals : [Goal]
     @State private var name = ""
     @State private var frequency = 0
     @State private var startDate = Date.now
     @State private var about = "about"
+    @State private var actGoals = [Goal]()
     @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack{
-            Form{
+            List{
                 TextField("name your activity", text: $name)
                 Picker("how many times per week?", selection: $frequency){
                     ForEach(1..<8){
                         Text("\($0)")
+                    }
+                }
+                Section("choose a goal"){
+                    ScrollView(.horizontal, showsIndicators: true){
+                        HStack(spacing: 50){
+                            ForEach(goals){ goal in
+                                Button(goal.name){
+                                    if actGoals.contains(goal){
+                                        if let index = actGoals.firstIndex(of: goal){
+                                            actGoals.remove(at: index)
+                                        }
+                                    }else{
+                                        actGoals.append(goal)
+                                    }
+                                }
+                                .foregroundStyle(actGoals.contains(goal) == true ? .green : .primary)
+                            }
+                        }
                     }
                 }
                 DatePicker("start date", selection: $startDate, in: Date.now... , displayedComponents: .date)
@@ -32,7 +52,7 @@ struct NewActivityView: View {
                 
             //Form{
                 Button("save"){
-                    let newActivity = Activity(name: name, freqency: frequency+1, days: [], weight: 0, startDate: startDate)
+                    let newActivity = Activity(name: name, freqency: frequency+1, days: [], weight: 0, startDate: startDate, goals: [])
                     modelContext.insert(newActivity)
                     //Activities.activities.append(newActivity)
                     for day in days {
