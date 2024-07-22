@@ -15,7 +15,8 @@ class Goal{
     var overallDef: String
     var oneYearDef: String
     var fiveYearDef: String
-    @Relationship(inverse: \Activity.goals) var activities: [Activity]
+    //@Relationship(inverse: \Activity.goals) var activities: [Activity]
+    var activities: [String]
     enum categories: String, CaseIterable, Identifiable, Codable {
         case physical
         case spritual
@@ -29,7 +30,7 @@ class Goal{
     }
     var category: [categories]
     
-    init(name: String, overallDef: String, oneYearDef: String, fiveYearDef: String, activities: [Activity], category: [categories]) {
+    init(name: String, overallDef: String, oneYearDef: String, fiveYearDef: String, activities: [String], category: [categories]) {
         self.name = name
         self.overallDef = overallDef
         self.oneYearDef = oneYearDef

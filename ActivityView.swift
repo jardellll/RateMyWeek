@@ -95,5 +95,5 @@ struct ActivityView: View {
 }
 
 #Preview {
-    ActivityView(activity: Activity(name: "sample", freqency: 4, days: [], goals: []))
+    ActivityView(activity: Activity(name: "sample", freqency: 4, days: []))
 }

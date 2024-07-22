@@ -15,16 +15,14 @@ struct GoalsView: View {
     @State private var overallDef = ""
     @State private var oneYearDef = ""
     @State private var fiveYearDef = ""
-    @State private var goalActivities = [Activity]()
+    @State private var goalActivities = [String]()
+    //@State private var goalActivities = [Activity]()
     @State private var goalCategories = [Goal.categories]()
     
     @Query var goals: [Goal]
     @Query var activities: [Activity]
     var body: some View {
         NavigationStack{
-            Button("create new goal"){
-                creatingNewGoal = true
-            }
             if creatingNewGoal{
                 List{
                     TextField("name", text: $goalName)
@@ -62,17 +60,17 @@ struct GoalsView: View {
                                 HStack(spacing: 50){
                                     ForEach(activities){act in
                                         Button("\(act.name)"){
-                                            if goalActivities.contains(act){
-                                                if let index = goalActivities.firstIndex(of: act){
+                                            if goalActivities.contains(act.id.uuidString){
+                                                if let index = goalActivities.firstIndex(of: act.id.uuidString){
                                                     goalActivities.remove(at: index)
                                                 }
                                             }else{
-                                                goalActivities.append(act)
+                                                goalActivities.append(act.id.uuidString)
                                             }
                                             print(goalActivities)
                                             
                                         }
-                                        .foregroundStyle(goalActivities.contains(act) == true ? .green : .primary)
+                                        .foregroundStyle(goalActivities.contains(act.id.uuidString) == true ? .green : .primary)
                                     }
                                 }
                             }
@@ -83,6 +81,8 @@ struct GoalsView: View {
                             let newGoal = Goal(name: goalName, overallDef: overallDef, oneYearDef: oneYearDef, fiveYearDef: fiveYearDef, activities: goalActivities, category: goalCategories)
                             
                             modelContext.insert(newGoal)
+                            
+//                            newGoal.activities.append(contentsOf: goalCategories)
                             //newGoal.category.
                             
                             //modelContext.insert(newGoal)
@@ -95,6 +95,9 @@ struct GoalsView: View {
                 }
             }
             else{
+                Button("create new goal"){
+                    creatingNewGoal = true
+                }
                 List(goals){ goal in
                     NavigationLink(destination: GoalDetailView(goal: goal)){
                         Text(goal.name)
@@ -113,3 +116,4 @@ struct GoalsView: View {
 #Preview {
     GoalsView()
 }
+

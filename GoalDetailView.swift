@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct GoalDetailView: View {
+    @Query var activities: [Activity]
     var goal: Goal
     @State private var edit = false
     @State private var editOrCancel = "edit"
@@ -39,6 +40,19 @@ struct GoalDetailView: View {
                     Section("Categories"){
                         ForEach(goal.category) {cat in
                             Text(cat.rawValue)
+                        }
+                    }
+                    Section("activities"){
+                        if !goal.activities.isEmpty{
+                            ScrollView(.horizontal, showsIndicators: true){
+                                HStack(spacing: 50){
+                                    ForEach(activities){act in
+                                        if goal.activities.contains(act.id.uuidString){
+                                            Text(act.name)
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                     
@@ -73,6 +87,28 @@ struct GoalDetailView: View {
                                         print(goal.category)
                                     }
                                     .foregroundStyle(goal.category.contains(cat) == true ? .green : .primary)
+                                }
+                            }
+                        }
+                    }
+                    Section("add existing activities to this goal"){
+                        if !activities.isEmpty{
+                            ScrollView(.horizontal, showsIndicators: true){
+                                HStack(spacing: 50){
+                                    ForEach(activities){act in
+                                        Button("\(act.name)"){
+                                            if goal.activities.contains(act.id.uuidString){
+                                                if let index = goal.activities.firstIndex(of: act.id.uuidString){
+                                                    goal.activities.remove(at: index)
+                                                }
+                                            }else{
+                                                goal.activities.append(act.id.uuidString)
+                                            }
+                                            print(goal.activities)
+                                            
+                                        }
+                                        .foregroundStyle(goal.activities.contains(act.id.uuidString) == true ? .green : .primary)
+                                    }
                                 }
                             }
                         }
