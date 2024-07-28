@@ -23,7 +23,7 @@ struct ActivityView: View {
             Button(editOrCancel){
                 if !editAct{
                     newName = activity.name
-                    newFreq = activity.freqency
+                    newFreq = activity.freqency - 1
                     // newWeight = activity.weight
                     //newDateStarted = activity.startDate
                     newAbout = activity.about ?? ""
@@ -71,8 +71,9 @@ struct ActivityView: View {
                         Button("save"){
                             activity.name = newName
                             activity.about = newAbout
-                            activity.freqency = newFreq
+                            activity.freqency = newFreq + 1
                             editAct = false
+                            editOrCancel = "edit"
                         }
                     }
                 }

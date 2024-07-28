@@ -23,6 +23,7 @@
 		82D85CD32C43F5B700FED8E0 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CD22C43F5B700FED8E0 /* LogView.swift */; };
 		82D85CD52C447B1B00FED8E0 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CD42C447B1B00FED8E0 /* Goal.swift */; };
 		82D85CD72C4580E600FED8E0 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CD62C4580E600FED8E0 /* GoalDetailView.swift */; };
+		82D85CD92C4E6F5100FED8E0 /* WeekScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CD82C4E6F5100FED8E0 /* WeekScores.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		82D85CD22C43F5B700FED8E0 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		82D85CD42C447B1B00FED8E0 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		82D85CD62C4580E600FED8E0 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
+		82D85CD82C4E6F5100FED8E0 /* WeekScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScores.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				82D85CD62C4580E600FED8E0 /* GoalDetailView.swift */,
 				82D85CD22C43F5B700FED8E0 /* LogView.swift */,
+				82D85CD82C4E6F5100FED8E0 /* WeekScores.swift */,
 				82D85CD02C43F12000FED8E0 /* StatsView.swift */,
 				82D85CCE2C43EFDC00FED8E0 /* GoalsView.swift */,
 				82D85CCC2C428BAA00FED8E0 /* OverallWeekScoreView.swift */,
@@ -183,6 +186,7 @@
 				82D85CCB2C3E9ABB00FED8E0 /* DaysCompletedListView.swift in Sources */,
 				826A5B292C14B007004C79D8 /* Day.swift in Sources */,
 				82D85CD52C447B1B00FED8E0 /* Goal.swift in Sources */,
+				82D85CD92C4E6F5100FED8E0 /* WeekScores.swift in Sources */,
 				82D85CCD2C428BAA00FED8E0 /* OverallWeekScoreView.swift in Sources */,
 				82D85CC92C3D47B600FED8E0 /* ActivityView.swift in Sources */,
 				826A5B2B2C3AADAF004C79D8 /* WeekWeightsView.swift in Sources */,
