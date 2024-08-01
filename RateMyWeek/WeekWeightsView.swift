@@ -28,7 +28,7 @@ struct WeekWeightsView: View {
                             HStack{
                                 VStack{
                                     Text(act.name)
-                                    Text("current weight = \(getWeight(name: act.name))")
+                                    Text("curr weight = \(getWeight(name: act.name))")
                                 }
                                 //Text("             ")
                                 //Spacer()

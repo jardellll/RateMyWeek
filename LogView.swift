@@ -69,7 +69,7 @@ struct LogView: View {
                  
                 Form{
                     Section{
-                        Text(currentDay == nil ? "--" : "\(getOverallWeekScore(day: currentDay!, activities: activities, days: days))")
+                        Text(currentDay == nil ? "--" : String(format: "%.2f",(getOverallWeekScore(day: currentDay!, activities: activities, days: days))))
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .frame(maxWidth: .infinity, alignment: .center)

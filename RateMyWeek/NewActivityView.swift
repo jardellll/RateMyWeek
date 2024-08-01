@@ -45,7 +45,7 @@ struct NewActivityView: View {
 //                        }
 //                    }
 //                }
-                DatePicker("start date", selection: $startDate, in: Date.now... , displayedComponents: .date)
+                DatePicker("start date", selection: $startDate, displayedComponents: .date)
                 
             //}
                 TextEditor(text: $about)

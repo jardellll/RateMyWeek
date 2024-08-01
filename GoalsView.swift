@@ -93,6 +93,7 @@ struct GoalsView: View {
                         }
                     }
                 }
+                .navigationTitle("Goals")
             }
             else{
                 Button("create new goal"){
@@ -108,7 +109,9 @@ struct GoalsView: View {
                             }
                     }
                 }
+                .navigationTitle("Goals")
             }
+                
         }
     }
 }

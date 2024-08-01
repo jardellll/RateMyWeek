@@ -8,9 +8,7 @@
 import Foundation
 import SwiftData
 
-
-func getWeekScore(act: Activity, currentDay: Day , days: [Day]) -> Int{
-    print("starting for one day")
+func getSameWeekDays(currentDay: Day , days: [Day])-> [Day]{
     let componets = Calendar.current.dateComponents([.weekOfYear], from: currentDay.date)
     let weekOfYear = componets.weekOfYear
     _ = Calendar.current.dateComponents([.day], from: currentDay.date)
@@ -86,6 +84,13 @@ func getWeekScore(act: Activity, currentDay: Day , days: [Day]) -> Int{
     }
     print("--------------------------")
     
+    return sameWeekDays
+}
+
+func getWeekScore(act: Activity, currentDay: Day , days: [Day]) -> Int{
+    print("starting for one day")
+    
+    let sameWeekDays = getSameWeekDays(currentDay: currentDay, days: days)
     //now check if they have the activity completed
     var activityCount = 0
     
@@ -115,4 +120,41 @@ func getOverallWeekScore(day: Day, activities: [Activity], days: [Day])-> Double
         overallWeekScore += weightedScore
     }
     return overallWeekScore
+}
+func getDaysCompleted(act: Activity,currentDay: Day , days: [Day])-> [String: Bool] {
+    
+    let sameWeekDays = getSameWeekDays(currentDay: currentDay, days: days)
+    var daysCompleted : [String: Bool] = [:]
+    var weekdayTranslation : [Int: String] = [:]
+    
+    weekdayTranslation [1] = "Sun"
+    weekdayTranslation [2] = "Mon"
+    weekdayTranslation [3] = "Tues"
+    weekdayTranslation [4] = "Wed"
+    weekdayTranslation [5] = "Thurs"
+    weekdayTranslation [6] = "Fri"
+    weekdayTranslation [7] = "Sat"
+    
+    for sameWeekDay in sameWeekDays{
+        let comp = Calendar.current.dateComponents([.weekday], from: sameWeekDay.date)
+        let weekday = comp.weekday
+        let weekdayString = weekdayTranslation[weekday!]
+        if sameWeekDay.compDict[act.id.uuidString] == true{
+            
+            daysCompleted[weekdayString!] = true
+        }else{
+            daysCompleted[weekdayString!] = false
+        }
+    }
+    
+    return daysCompleted
+}
+
+func getWeekDateRange(currentDay: Day , days: [Day])-> String{
+    let sameWeekDays = getSameWeekDays(currentDay: currentDay, days: days).sorted(by:{ $0.date < $1.date })
+    var dateRange = sameWeekDays.first!.date.formatted(date: .abbreviated, time: .omitted)
+    dateRange.append(" - ")
+    dateRange.append(sameWeekDays.last!.date.formatted(date: .abbreviated, time: .omitted))
+    
+    return dateRange
 }
