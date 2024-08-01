@@ -15,73 +15,76 @@ struct StatsView: View {
     @State private var weekMap = [Day : String]()
     @State private var weekNum = "no week"
     var body: some View {
-        List{
-            Section("by week"){
-                ScrollView(.horizontal, showsIndicators: true){
-                    HStack(spacing: 50){
-                        let weekList = getWeeks(days: days)
-                        
-                        ForEach(weekList, id: \.self){ week in
-                            Button{
-                                weekNum = week
-                            }label: {
-                                VStack{
-                                    //Text("week: \(week)")
-                                    let ODPW = OneDayPerWeek(curWeekNum: week, days: days)
-                                    Text("\(getWeekDateRange(currentDay: ODPW.first!, days: days))")
-                                    Text(String(format: "%.2f",(getOverallWeekScore(day:ODPW.first!, activities:activities, days:days))))
+        NavigationStack{
+            List{
+                Section("by week"){
+                    ScrollView(.horizontal, showsIndicators: true){
+                        HStack(spacing: 50){
+                            let weekList = getWeeks(days: days)
+                            
+                            ForEach(weekList, id: \.self){ week in
+                                Button{
+                                    weekNum = week
+                                }label: {
+                                    VStack{
+                                        //Text("week: \(week)")
+                                        let ODPW = OneDayPerWeek(curWeekNum: week, days: days)
+                                        Text("\(getWeekDateRange(currentDay: ODPW.first!, days: days))")
+                                        Text(String(format: "%.2f",(getOverallWeekScore(day:ODPW.first!, activities:activities, days:days))))
+                                        
+                                    }
+                                }
+                                
+                            }
+                            //                    ForEach(ODPW){ day in
+                            //                        Text("\(getOverallWeekScore(day:day,activities:activities,days:days))")
+                            //                        weekMap[day] = weekList[0]
+                            //                    }
+                        }
+                    }
+                }
+                Section{
+                    if weekNum != "no week"{
+                        let ODPW = OneDayPerWeek(curWeekNum: weekNum, days: days)
+                        ForEach(ODPW.first!.activities, id: \.self){act in
+                            VStack{
+                                HStack{
+                                    Text(act.name)
+                                        .font(.headline)
                                     
+                                    Spacer()
+                                    Text("\(getWeekScore(act: act, currentDay:ODPW.first!, days: days))/\(act.freqency)")
+                                }
+                                
+                                HStack{
+                                    let daysCompleted = getDaysCompleted(act: act, currentDay: ODPW.first!, days: days)
+                                    Text("Sun")
+                                        .foregroundStyle(daysCompleted["Sun"] == true ? .green : .primary)
+                                    Spacer()
+                                    Text("Mon")
+                                        .foregroundStyle(daysCompleted["Mon"] == true ? .green : .primary)
+                                    Spacer()
+                                    Text("Tues")
+                                        .foregroundStyle(daysCompleted["Tues"] == true ? .green : .primary)
+                                    Spacer()
+                                    Text("Wed")
+                                        .foregroundStyle(daysCompleted["Wed"] == true ? .green : .primary)
+                                    Spacer()
+                                    Text("Thurs")
+                                        .foregroundStyle(daysCompleted["Thurs"] == true ? .green : .primary)
+                                    Spacer()
+                                    Text("Fri")
+                                        .foregroundStyle(daysCompleted["Fri"] == true ? .green : .primary)
+                                    Spacer()
+                                    Text("Sat")
+                                        .foregroundStyle(daysCompleted["Sat"] == true ? .green : .primary)
                                 }
                             }
-                            
-                        }
-                        //                    ForEach(ODPW){ day in
-                        //                        Text("\(getOverallWeekScore(day:day,activities:activities,days:days))")
-                        //                        weekMap[day] = weekList[0]
-                        //                    }
-                    }
-                }
-            }
-            Section{
-                if weekNum != "no week"{
-                    let ODPW = OneDayPerWeek(curWeekNum: weekNum, days: days)
-                    ForEach(ODPW.first!.activities, id: \.self){act in
-                        VStack{
-                            HStack{
-                                Text(act.name)
-                                    .font(.headline)
-                                    
-                                Spacer()
-                                Text("\(getWeekScore(act: act, currentDay:ODPW.first!, days: days))/\(act.freqency)")
-                            }
-                            
-                            HStack{
-                                let daysCompleted = getDaysCompleted(act: act, currentDay: ODPW.first!, days: days)
-                                Text("Sun")
-                                    .foregroundStyle(daysCompleted["Sun"] == true ? .green : .primary)
-                                Spacer()
-                                Text("Mon")
-                                    .foregroundStyle(daysCompleted["Mon"] == true ? .green : .primary)
-                                Spacer()
-                                Text("Tues")
-                                    .foregroundStyle(daysCompleted["Tues"] == true ? .green : .primary)
-                                Spacer()
-                                Text("Wed")
-                                    .foregroundStyle(daysCompleted["Wed"] == true ? .green : .primary)
-                                Spacer()
-                                Text("Thurs")
-                                    .foregroundStyle(daysCompleted["Thurs"] == true ? .green : .primary)
-                                Spacer()
-                                Text("Fri")
-                                    .foregroundStyle(daysCompleted["Fri"] == true ? .green : .primary)
-                                Spacer()
-                                Text("Sat")
-                                    .foregroundStyle(daysCompleted["Sat"] == true ? .green : .primary)
-                            }
                         }
                     }
                 }
             }
+            .navigationTitle("Stats")
         }
         
     }
