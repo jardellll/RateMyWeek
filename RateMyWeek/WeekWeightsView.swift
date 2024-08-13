@@ -29,17 +29,18 @@ struct WeekWeightsView: View {
                                 VStack{
                                     Text(act.name)
                                     Text("curr weight = \(getWeight(name: act.name))")
+                                    
+                                    //Text("             ")
+                                    //Spacer()
                                 }
-                                //Text("             ")
-                                //Spacer()
                                 TextField("enter new weight", value: Binding(
                                     get: { newWeights[act.name] ?? getWeight(name: act.name) },
                                     set: { newWeights[act.name] = $0 }), formatter: NumberFormatter())
                                 .keyboardType(.decimalPad)
-                                .multilineTextAlignment(.trailing)
-                                Spacer()
-                                Spacer()
-                                Spacer()
+                                .multilineTextAlignment(.center)
+//                                Spacer()
+//                                Spacer()
+//                                Spacer()
                                 //                    .onChange(of: weight){
                                 //                        newWeights[act.name] = weight
                                 //                    }

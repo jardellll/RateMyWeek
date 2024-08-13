@@ -12,6 +12,7 @@ struct LogView: View {
     @State private var chosenDay = Date.now
     @State private var showingSheet = false
     @State private var showingWeightSheet = false
+    @State private var showingNotificationSheet = false
     @Query var days : [Day]
     @Query var activities : [Activity]
     
@@ -39,6 +40,13 @@ struct LogView: View {
                         WeekWeightsView()
                     }
                     Spacer()
+                    Button("edit notifications"){
+                        checkForPermission()
+                        //showingNotificationSheet.toggle()
+                    }
+                    .sheet(isPresented: $showingNotificationSheet){
+                        NotificationView()
+                    }
                     Spacer()
                     Button("new activity"){
                         print("new activity 1 \(showingSheet)")
@@ -175,6 +183,30 @@ struct LogView: View {
     }
     func getStrDate(day: Date)->String{
         return day.formatted(date: .abbreviated, time: .omitted)
+    }
+    func checkForPermission(){
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings{ settings in
+            switch settings.authorizationStatus {
+            case .notDetermined:
+                notificationCenter.requestAuthorization(options: [.alert, .sound]){ didAllow, error in
+                    if didAllow{
+                        showingNotificationSheet.toggle()
+                    }
+                    
+                }
+            case .denied:
+                notificationCenter.requestAuthorization(options: [.alert, .sound]){ didAllow, error in
+                    if didAllow{
+                        showingNotificationSheet.toggle()
+                    }
+                }
+            case .authorized:
+                showingNotificationSheet.toggle()
+            default:
+                return
+            }
+        }
     }
     
     
