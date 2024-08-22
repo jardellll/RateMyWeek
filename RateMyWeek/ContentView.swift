@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import UserNotifications
+import SwiftData
 
 struct ContentView: View {
+    @Environment(\.modelContext) var modelContext
     @State private var selectedTab = 1
+    @Query var activities : [Activity]
+    @Query var days : [Day]
     var body: some View {
         TabView(selection: $selectedTab){
             GoalsView()
@@ -26,6 +31,10 @@ struct ContentView: View {
                     Label("stats", systemImage: "chart.xyaxis.line")
                 }
                 .tag(2)
+        }
+        .onAppear(){
+            let delegate = NotificationDelegate(activities: activities, days: days, modelContext: modelContext)
+            UNUserNotificationCenter.current().delegate = delegate
         }
     }
 }
