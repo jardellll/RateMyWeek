@@ -131,41 +131,67 @@ struct LogView: View {
                     //            let componets = Calendar.current.dateComponents([.weekOfYear], from: currentDay?.date ?? Date.now)
                     //            let weekOfYear = componets.weekOfYear ?? 0
                     //            Text("the week of the year is \(weekOfYear)")
-                    Section{
-                        if let currentDay = currentDay{
-                            List(currentDay.activities){activity in
-                                HStack{
-                                    NavigationLink(destination: ActivityView(activity: activity)){
-                                        //ActivityView(activity: activity)
-                                    //}label: {
-                                        Text(activity.name)
-                                            .foregroundStyle(currentDay.compDict[activity.id.uuidString] == true ? .green : .primary)
-                                            .swipeActions{
-                                                
-                                                Button("delete", systemImage: "trash", role: .destructive) {
-                                                    modelContext.delete(activity)
-                                                }
-                                                if currentDay.compDict[activity.id.uuidString] == false{
-                                                    Button("completed", systemImage: "checkmark.circle"){
-                                                        currentDay.compDict[activity.id.uuidString] = true
-                                                        try? modelContext.save()
-                                                    }
-                                                }else{
-                                                    Button("incomplete", systemImage: "x.circle"){
-                                                        currentDay.compDict[activity.id.uuidString] = false
-                                                        try? modelContext.save()
-                                                    }
-                                                }
+                    Section {
+                        if let currentDay = currentDay {
+                            List(currentDay.activities) { activity in
+                                VStack {
+                                    HStack {
+                                        // NavigationLink should only wrap the text or view you want to be tappable for navigation
+                                        NavigationLink(destination: ActivityView(activity: activity)) {
+                                            HStack {
+                                                Text(activity.name)
+                                                    .foregroundStyle(currentDay.compDict[activity.id.uuidString] == true ? .green : .primary)
                                             }
+                                        }
+                                        
+                                        
                                     }
                                     
-                                    
-                                    Spacer()
-                                    
-                                    
-                                    Text("\(getWeekScore(act: activity, currentDay: currentDay, days: days))/\(activity.freqency)")
-                                    
-                                    
+                                    HStack {
+                                        
+                                        
+                                        Text("\(getWeekScore(act: activity, currentDay: currentDay, days: days))/\(activity.freqency)")
+                                        
+                                        Spacer()
+                                        
+                                        Button(action: {
+                                            //withAnimation(.scale){
+                                                if currentDay.compDict[activity.id.uuidString] == false {
+                                                    currentDay.compDict[activity.id.uuidString] = true
+                                                    try? modelContext.save()
+                                                    print("Checkmark button pressed")
+                                                }
+                                          // }
+                                        }) {
+                                            Image(systemName: "checkmark.circle")
+                                                .foregroundColor(.green)
+                                        }
+                                        .buttonStyle(BorderlessButtonStyle())
+                                        
+                                        Button(action: {
+                                            //withAnimation(.scale){
+                                                if currentDay.compDict[activity.id.uuidString] == true {
+                                                    currentDay.compDict[activity.id.uuidString] = false
+                                                    try? modelContext.save()
+                                                    print("X button pressed")
+                                                }
+                                          //  }
+                                        }) {
+                                            Image(systemName: "x.circle")
+                                                .foregroundColor(.red)
+                                        }
+                                        .buttonStyle(BorderlessButtonStyle())
+                                        
+                                        
+                                    }
+                                    //.padding(.top, 5)
+                                }
+                                .swipeActions {
+                                    Button(role: .destructive) {
+                                        modelContext.delete(activity)
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
                                 }
                             }
                         }
