@@ -150,11 +150,19 @@ func getDaysCompleted(act: Activity,currentDay: Day , days: [Day])-> [String: Bo
     return daysCompleted
 }
 
-func getWeekDateRange(currentDay: Day , days: [Day])-> String{
+func getWeekDateRange(currentDay: Day , days: [Day])-> (String, String){
     let sameWeekDays = getSameWeekDays(currentDay: currentDay, days: days).sorted(by:{ $0.date < $1.date })
-    var dateRange = sameWeekDays.first!.date.formatted(date: .abbreviated, time: .omitted)
-    dateRange.append(" - ")
-    dateRange.append(sameWeekDays.last!.date.formatted(date: .abbreviated, time: .omitted))
+    var dateRangeLong = sameWeekDays.first!.date.formatted(date: .abbreviated, time: .omitted)
+    dateRangeLong.append(" - ")
+    dateRangeLong.append(sameWeekDays.last!.date.formatted(date: .abbreviated, time: .omitted))
     
-    return dateRange
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd"
+    
+    var dateRangeShort = dateFormatter.string(from: sameWeekDays.first!.date)
+    dateRangeShort.append(" - ")
+    dateRangeShort.append(dateFormatter.string(from:sameWeekDays.last!.date))
+    
+    
+    return (dateRangeLong, dateRangeShort)
 }

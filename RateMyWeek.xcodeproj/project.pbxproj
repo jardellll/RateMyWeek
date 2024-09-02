@@ -15,6 +15,7 @@
 		823715902C13F73D0040A468 /* NewActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8237158F2C13F73D0040A468 /* NewActivityView.swift */; };
 		826A5B292C14B007004C79D8 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A5B282C14B007004C79D8 /* Day.swift */; };
 		826A5B2B2C3AADAF004C79D8 /* WeekWeightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A5B2A2C3AADAF004C79D8 /* WeekWeightsView.swift */; };
+		8296856A2C8395AD00A86D83 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829685692C8395AD00A86D83 /* Week.swift */; };
 		82B99B992C68D516004D7F7B /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B99B982C68D516004D7F7B /* NotificationView.swift */; };
 		82D85CC92C3D47B600FED8E0 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CC82C3D47B600FED8E0 /* ActivityView.swift */; };
 		82D85CCB2C3E9ABB00FED8E0 /* DaysCompletedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D85CCA2C3E9ABB00FED8E0 /* DaysCompletedListView.swift */; };
@@ -37,6 +38,7 @@
 		8237158F2C13F73D0040A468 /* NewActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityView.swift; sourceTree = "<group>"; };
 		826A5B282C14B007004C79D8 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		826A5B2A2C3AADAF004C79D8 /* WeekWeightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeightsView.swift; sourceTree = "<group>"; };
+		829685692C8395AD00A86D83 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
 		82B99B942C5CE1B2004D7F7B /* RateMyWeek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RateMyWeek.entitlements; sourceTree = "<group>"; };
 		82B99B972C677B83004D7F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		82B99B982C68D516004D7F7B /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				82D85CD22C43F5B700FED8E0 /* LogView.swift */,
 				82B99B982C68D516004D7F7B /* NotificationView.swift */,
 				82D85CD82C4E6F5100FED8E0 /* WeekScores.swift */,
+				829685692C8395AD00A86D83 /* Week.swift */,
 				82D85CD02C43F12000FED8E0 /* StatsView.swift */,
 				82D85CCE2C43EFDC00FED8E0 /* GoalsView.swift */,
 				82D85CCC2C428BAA00FED8E0 /* OverallWeekScoreView.swift */,
@@ -196,6 +199,7 @@
 				82D85CD52C447B1B00FED8E0 /* Goal.swift in Sources */,
 				82D85CD92C4E6F5100FED8E0 /* WeekScores.swift in Sources */,
 				82D85CCD2C428BAA00FED8E0 /* OverallWeekScoreView.swift in Sources */,
+				8296856A2C8395AD00A86D83 /* Week.swift in Sources */,
 				82D85CC92C3D47B600FED8E0 /* ActivityView.swift in Sources */,
 				826A5B2B2C3AADAF004C79D8 /* WeekWeightsView.swift in Sources */,
 				823715802C1318480040A468 /* RateMyWeekApp.swift in Sources */,
@@ -331,12 +335,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RateMyWeek/RateMyWeek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RateMyWeek/Preview Content\"";
 				DEVELOPMENT_TEAM = 2PF93522V9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RateMyWeek/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -345,7 +350,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.emile.jardel.RateMyWeek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -361,12 +366,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RateMyWeek/RateMyWeek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RateMyWeek/Preview Content\"";
 				DEVELOPMENT_TEAM = 2PF93522V9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RateMyWeek/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -375,7 +381,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.emile.jardel.RateMyWeek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
