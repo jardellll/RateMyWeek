@@ -148,8 +148,6 @@ struct LogView: View {
                                     }
                                     
                                     HStack {
-                                        
-                                        
                                         Text("\(getWeekScore(act: activity, currentDay: currentDay, days: days))/\(activity.freqency)")
                                         
                                         Spacer()
@@ -160,10 +158,13 @@ struct LogView: View {
                                                     currentDay.compDict[activity.id.uuidString] = true
                                                     try? modelContext.save()
                                                     print("Checkmark button pressed")
+                                                }else if currentDay.compDict[activity.id.uuidString] == true{
+                                                    print("it's false")
                                                 }
                                           // }
                                         }) {
                                             Image(systemName: "checkmark.circle")
+                                                .imageScale(.large)
                                                 .foregroundColor(.green)
                                         }
                                         .buttonStyle(BorderlessButtonStyle())
@@ -178,6 +179,7 @@ struct LogView: View {
                                           //  }
                                         }) {
                                             Image(systemName: "x.circle")
+                                                .imageScale(.large)
                                                 .foregroundColor(.red)
                                         }
                                         .buttonStyle(BorderlessButtonStyle())

@@ -63,6 +63,7 @@ struct NewActivityView: View {
                         let actStartDt =  calendar.date(from: actStartDate)!
                         if dayStartDt >= actStartDt{
                             day.activities.append(newActivity)
+                            day.compDict[newActivity.id.uuidString] = false
                         }
                     }
                     dismiss()
