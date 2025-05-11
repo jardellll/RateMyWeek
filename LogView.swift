@@ -40,13 +40,13 @@ struct LogView: View {
                         WeekWeightsView()
                     }
                     Spacer()
-                    Button("edit notifications"){
-                        checkForPermission()
-                        //showingNotificationSheet.toggle()
-                    }
-                    .sheet(isPresented: $showingNotificationSheet){
-                        NotificationView()
-                    }
+//                    Button("edit notifications"){
+//                        checkForPermission()
+//                        //showingNotificationSheet.toggle()
+//                    }
+//                    .sheet(isPresented: $showingNotificationSheet){
+//                        NotificationView()
+//                    }
                     Spacer()
                     Button("new activity"){
                         print("new activity 1 \(showingSheet)")

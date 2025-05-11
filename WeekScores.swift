@@ -9,6 +9,10 @@ import Foundation
 import SwiftData
 
 func getSameWeekDays(currentDay: Day , days: [Day])-> [Day]{
+    /*
+     returns a list of days that are all in the same week as the day provided
+     utility function to help display the days an activity was completed or to calculate scores etc
+     */
     let componets = Calendar.current.dateComponents([.weekOfYear], from: currentDay.date)
     let weekOfYear = componets.weekOfYear
     _ = Calendar.current.dateComponents([.day], from: currentDay.date)
@@ -88,6 +92,9 @@ func getSameWeekDays(currentDay: Day , days: [Day])-> [Day]{
 }
 
 func getWeekScore(act: Activity, currentDay: Day , days: [Day]) -> Int{
+    /*
+     fucntion that returns how many times in a specific week a specific activity was completed
+     */
     print("starting for one day")
     
     let sameWeekDays = getSameWeekDays(currentDay: currentDay, days: days)
@@ -111,6 +118,9 @@ func getWeekScore(act: Activity, currentDay: Day , days: [Day]) -> Int{
 }
 
 func getOverallWeekScore(day: Day, activities: [Activity], days: [Day])-> Double{
+    /*
+     function that returns the overall score for the week based on all the activities and the weights associated with them
+     */
     var overallWeekScore = 0.00
     for act in activities{
         let actWeekScore = Double(getWeekScore(act: act, currentDay: day, days: days))
@@ -122,6 +132,9 @@ func getOverallWeekScore(day: Day, activities: [Activity], days: [Day])-> Double
     return overallWeekScore
 }
 func getDaysCompleted(act: Activity,currentDay: Day , days: [Day])-> [String: Bool] {
+    /*
+     function that returns a map of each day of the week and if a specific activity was completed or not, used in stats view
+     */
     
     let sameWeekDays = getSameWeekDays(currentDay: currentDay, days: days)
     var daysCompleted : [String: Bool] = [:]
@@ -151,6 +164,9 @@ func getDaysCompleted(act: Activity,currentDay: Day , days: [Day])-> [String: Bo
 }
 
 func getWeekDateRange(currentDay: Day , days: [Day])-> (String, String){
+    /*
+     function that returns the date range in a nice format for displaying the stats view
+     */
     let sameWeekDays = getSameWeekDays(currentDay: currentDay, days: days).sorted(by:{ $0.date < $1.date })
     var dateRangeLong = sameWeekDays.first!.date.formatted(date: .abbreviated, time: .omitted)
     dateRangeLong.append(" - ")

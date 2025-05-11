@@ -9,6 +9,19 @@ import Foundation
 import SwiftData
 
 @Model
+/*
+ 
+ Goal has an id to be indentified
+ Goal has a name to store the name of the goal
+ Goal has other fields to store information about the day
+    overallDef
+    oneYearDef
+    fiveYearDef
+ Goal has a list of strings for activities
+ Goal has categories that are implemeneted as an enum
+ 
+ To create a new goal, all the variables need to be provided
+ */
 class Goal{
     let id = UUID()
     var name: String

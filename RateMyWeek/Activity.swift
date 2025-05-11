@@ -9,6 +9,18 @@ import Foundation
 import SwiftData
 
 @Model
+/*
+ 
+ Activity has an id to be identified
+ Activity has a name for it's name
+ frequency for how many times in the weeek it should be completed
+ days is a list of Day, this stores all the days the activity was completed on
+ weight is an int and it stores the weight given to the activity
+ startDate is when the activity is first started. I think this is to make it easier to know which activities to show for which date
+ about stores a description of the activity
+ */
+
+
 class Activity{
     let id = UUID()
     var name: String
